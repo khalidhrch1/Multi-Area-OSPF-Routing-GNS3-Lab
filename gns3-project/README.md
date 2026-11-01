@@ -1,13 +1,16 @@
-# GNS3 project export (pending)
+# GNS3 project export
 
-The original runnable GNS3 project archive was not provided with this repository package.
+`Multi-Area-OSPF-Routing-GNS3-Lab.gns3project` is a cleaned archive of the saved GNS3 project from the local GNS3 workspace.
 
-To publish it:
+Included:
 
-1. In GNS3, stop the devices and export the project using the built-in project export function.
-2. Include router startup configurations when available.
-3. Do **not** distribute copyrighted Cisco IOS images or unnecessary runtime disk files.
-4. Save the cleaned archive here as `Multi-Area-OSPF-Routing-GNS3-Lab.gns3project`.
-5. Re-import and test the archive before claiming it is fully reproducible.
+- The original GNS3 topology definition for 13 router nodes: R1–R12 and `Internet`.
+- The 13 native Dynamips startup configurations under their original project paths.
+- The original topology structure and interface links.
 
-The `configs/base/` files are educational reference configurations and may differ from the running configs in the actual GNS3 project.
+Excluded deliberately:
+
+- Cisco IOS images and other proprietary vendor software.
+- Dynamips runtime state such as NVRAM, bootflash, IOMEM, ghost files, locks, logs, and console output.
+
+To use the archive, import it into GNS3 and map the referenced C7200 IOS image to a legally obtained local image. The archive has been structurally inspected, but live re-import and end-to-end OSPF verification remain unverified. The reference configs in `../configs/` are maintained separately for readability.
