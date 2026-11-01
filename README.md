@@ -134,13 +134,37 @@ traceroute 12.12.12.12
 
 ## Recorded lab evidence
 
-The shared R2 neighbor output showed an established FULL adjacency over `OSPF_VL0` to R3, plus a physical FULL adjacency to R3 in Area 5 and a physical FULL adjacency to R1 in Area 7. See [verification notes](verification/README.md). This is **not** a claim that every router or virtual link has been validated.
+The shared verification captures show an established FULL adjacency over `OSPF_VL0` for both the R2–R3 Area 5 virtual link and the R8–R11 Area 6 virtual link, plus successful internal reachability and default-route advertisement. See the detailed [verification results](verification/README.md). This is **not** a claim that every router or every possible path has been validated.
+
+## Lab Verification & Results
+
+Selected Cisco IOS captures demonstrate the core OSPF results:
+
+### OSPF routing table
+
+![R1 OSPF routing table](verification/screenshots/r1-ospf-routing-table.png)
+
+R1 learns intra-area (`O`), inter-area (`O IA`), and external default-route (`O*E2 0.0.0.0/0`) entries.
+
+### Virtual-link verification
+
+![R2 Area 5 virtual link](verification/screenshots/r2-virtual-link-area5.png)
+
+R2 reports the R2–R3 virtual link through Area 5 as `up` with adjacency state `FULL`. The R8–R11 Area 6 virtual-link capture is included in the detailed verification report.
+
+### Loopback connectivity and external LSA
+
+![R1 Loopback0 connectivity and Type 5 external LSA](verification/screenshots/r1-loopback-ping-external-lsa.png)
+
+R1 Loopback0 reaches R12 Loopback0 with 100% success, and the Type 5 default-route LSA identifies R5 (`5.5.5.5`) as the advertising router.
+
+See [verification/README.md](verification/README.md) for all five screenshots, Cisco commands, explanations, and verification limitations.
 
 ## Future improvements
 
 - Re-import the included `.gns3project` archive and record end-to-end verification results.
 - Capture `show running-config` from every active router and replace reference configs where needed.
-- Verify the R8–R11 virtual link and record screenshots/results.
+- Capture additional physical-neighbor and failover results from the remaining routers.
 - Document OSPF LSA Types 1–5, DR/BDR elections, costs, summarization and failover.
 - Extend to a second ISP router (R14), then experiment with competing default routes and backup paths.
 
