@@ -12,7 +12,7 @@ A practical multi-area **OSPFv2 routing laboratory** built in **GNS3** using Cis
 
 The core contains **12 OSPF routers** plus **R13**, a simulated ISP router attached to R5. R13 is an extension for static routing and default-route experiments; it **does not run OSPF**. A possible second ISP (R14) was discussed but **is not part of this version**.
 
-> **Project status:** The topology and reference configurations are documented. A FULL R2–R3 virtual adjacency was demonstrated in console output, but the entire 13-router configuration has **not** been independently verified end-to-end. The native `.gns3project` export is not yet included. Cisco IOS images are not distributed here.
+> **Project status:** The topology and reference configurations are documented, and a cleaned native `.gns3project` archive is included under [`gns3-project/`](gns3-project/). A FULL R2–R3 virtual adjacency was demonstrated in console output, but the entire 13-router configuration has **not** been independently verified end-to-end. Cisco IOS images are not distributed here.
 
 ## Network topology
 
@@ -99,7 +99,8 @@ Multi-Area-OSPF-Routing-GNS3-Lab/
 │   ├── README.md
 │   └── observed-R2-neighbors.txt
 └── gns3-project/
-    └── README.md              # Native project export pending
+    ├── Multi-Area-OSPF-Routing-GNS3-Lab.gns3project
+    └── README.md              # Export contents and limitations
 ```
 
 ## How to run
@@ -111,7 +112,7 @@ Multi-Area-OSPF-Routing-GNS3-Lab/
 5. Verify `show ip ospf neighbor` until all expected physical adjacencies reach FULL.
 6. Verify virtual links with `show ip ospf virtual-links` on both endpoints.
 7. For the optional R13 ISP experiment, apply `configs/extensions/` and check static default-route origination.
-8. Export the real GNS3 project (`.gns3project`) to `gns3-project/` and upload it to GitHub separately. Do not distribute proprietary Cisco IOS images.
+8. Import [`gns3-project/Multi-Area-OSPF-Routing-GNS3-Lab.gns3project`](gns3-project/Multi-Area-OSPF-Routing-GNS3-Lab.gns3project), map a legally obtained local IOS image, and verify the topology before use. Do not distribute proprietary Cisco IOS images.
 
 ## Useful Cisco verification commands
 
@@ -137,7 +138,7 @@ The shared R2 neighbor output showed an established FULL adjacency over `OSPF_VL
 
 ## Future improvements
 
-- Export and upload a clean, runnable `.gns3project` archive without IOS images.
+- Re-import the included `.gns3project` archive and record end-to-end verification results.
 - Capture `show running-config` from every active router and replace reference configs where needed.
 - Verify the R8–R11 virtual link and record screenshots/results.
 - Document OSPF LSA Types 1–5, DR/BDR elections, costs, summarization and failover.
