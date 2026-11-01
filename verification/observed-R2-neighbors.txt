@@ -1,0 +1,8 @@
+# Captured output provided by lab operator
+R2#show ip ospf neighbor
+
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+3.3.3.3           0   FULL/  -           -        10.0.30.2       OSPF_VL0
+3.3.3.3           1   FULL/DR         00:00:33    10.0.30.2       GigabitEthernet0/0
+1.1.1.1           1   FULL/BDR        00:00:33    10.0.40.1       GigabitEthernet1/0
+R2#
