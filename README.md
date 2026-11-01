@@ -39,7 +39,7 @@ R2 and R6 attach Areas 7 and 5; R3 attaches Areas 5 and 0; R8, R10 and R11 attac
 | R2 (`2.2.2.2`) ↔ R3 (`3.3.3.3`) | 5 | Logically attach Area 7 to Area 0 |
 | R8 (`8.8.8.8`) ↔ R11 (`11.11.11.11`) | 6 | Connect central and right Area 0 segments |
 
-The R2–R3 virtual adjacency reached **FULL** on `OSPF_VL0` in an observed R2 console output. The R8–R11 virtual link is part of the intended documented configuration; independently confirm its state in your own GNS3 lab.
+The R2–R3 virtual adjacency reached **FULL** on `OSPF_VL0` in an observed R2 console output. The R8–R11 virtual link is also confirmed **up** with adjacency state **FULL** in the captured R8 console output. These screenshots document the observed state at capture time; additional end-to-end testing remains outside this evidence set.
 
 ## Addressing plan
 
